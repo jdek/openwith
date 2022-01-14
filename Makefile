@@ -17,11 +17,13 @@ $(DESTDIR)$(PREFIX)/bin/openwith: openwith
 
 install: $(DESTDIR)$(PREFIX)/bin/openwith
 
+version:
+	ruby -ne 'return if File.write("version", $$_.match(/openwith: (.*)$$/){$$1})' openwith.swift
+
 .PHONY: release
-release: openwith
-	@ruby -ne 'return if File.write("version", $$_.match(/openwith: (\d+\.\d+\.\d+)/){$$1})' openwith.swift
+release: version
 	tar -cJf openwith-$(shell cat version).tar.xz openwith
-	@rm -f version
+	rm -f version
 
 .PHONY: clean
 clean: openwith
