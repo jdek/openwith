@@ -14,7 +14,7 @@ usage: openwith <bundle> [extension ...]
 ## Example
 
 ```sh
-$ osascript -e 'id of "mpv"'
+$ osascript -e 'id of app "mpv"'
 io.mpv
 $ openwith io.mpv mkv mov mp4 avi
 mkv (org.matroska.mkv) -> io.mpv
