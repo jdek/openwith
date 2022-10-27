@@ -3,10 +3,10 @@ all: openwith
 PREFIX?=/usr/local
 
 %_x86_64: %.swift
-	swiftc -Osize -target arm64-apple-macosx11.0  -o $@ $<
+	swiftc -Osize -target x86_64-apple-macosx11.0 -o $@ $<
 
 %_arm64:  %.swift
-	swiftc -Osize -target x86_64-apple-macosx11.0 -o $@ $<
+	swiftc -Osize -target arm64-apple-macosx11.0  -o $@ $<
 
 %: %_x86_64 %_arm64
 	lipo -create $^ -o $@
